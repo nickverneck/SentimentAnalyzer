@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sentiment-analyzer"
+version = "0.1.0"
+description = "Scrape social platforms and export normalized data for downstream sentiment analysis"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "yars @ git+https://github.com/datavorous/yars.git",
+    "twscrape>=0.12.0",
+    "facebook-scraper>=0.2.62",
+]
+
+[project.scripts]
+sentiment-analyzer = "sentiment_analyzer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
